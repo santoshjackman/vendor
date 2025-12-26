@@ -1,0 +1,122 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Light theme */
+  --bg: #f8fafc;
+  --bg-muted: #eef2f7;
+  --surface: #ffffff;
+  --surface-muted: #f4f6fb;
+  --border: #e5e7eb;
+  --text: #0f172a;
+  --text-muted: #475569;
+  --accent: #4c6fff;
+  --shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+}
+
+.dark {
+  /* Dark theme */
+  --bg: #1c1e1d;
+  --bg-muted: #161716;
+  --surface: #353935;
+  --surface-muted: #28282b;
+  --border: #2e312f;
+  --text: #f0fff0;
+  --text-muted: #f9f6ee;
+  --accent: #7da0ff;
+  --shadow: 0 12px 40px rgba(0, 0, 0, 0.65);
+}
+
+html,
+body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", Arial, sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at 20% 20%, var(--bg-muted) 0, var(--bg) 60%, var(--bg) 100%);
+}
+
+/* Smooth transitions */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Force common surfaces/text to dark palette */
+.bg-white,
+.bg-gray-50,
+.bg-gray-100 {
+  background-color: var(--surface) !important;
+  color: var(--text) !important;
+  box-shadow: var(--shadow);
+}
+
+.bg-blue-50,
+.bg-indigo-50,
+.bg-emerald-50,
+.bg-amber-50 {
+  background-color: var(--surface-muted) !important;
+  color: var(--text) !important;
+}
+
+.text-gray-900,
+.text-gray-800,
+.text-gray-700,
+.text-gray-600,
+.text-black {
+  color: var(--text) !important;
+}
+
+.text-gray-500,
+.text-gray-400 {
+  color: var(--text-muted) !important;
+}
+
+.text-blue-900,
+.text-blue-800 {
+  color: var(--accent) !important;
+}
+
+.border,
+.border-gray-100,
+.border-gray-200,
+.border-gray-300 {
+  border-color: var(--border) !important;
+}
+
+.shadow,
+.shadow-sm,
+.shadow-md,
+.shadow-lg {
+  box-shadow: var(--shadow) !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
